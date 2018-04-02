@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 
 class InputForm extends Component {
-
     render(){
         return (
             <div>
-                <input type="text"/>
+                <input onChange={this.props.__onChangeHandler.bind(this)} type="text"/>
             </div>
         )
     }

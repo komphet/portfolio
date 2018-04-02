@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
+import InputForm from "../components/InputForm";
 
 class App extends Component {
     constructor(props){
@@ -9,6 +10,12 @@ class App extends Component {
         this.state = {
             name: "komphet"
         }
+    }
+
+    __onChangeHandler(e){
+        this.setState({
+            name: e.target.value
+        });
     }
 
     render() {
@@ -21,7 +28,7 @@ class App extends Component {
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
-                <input type="text" onChange={(e)=>{ this.setState({name: e.target.value}) }}/>
+                <InputForm __onChangeHandler={this.__onChangeHandler.bind(this)}/>
                 <div>{this.state.name}</div>
             </div>
         );
